@@ -8,23 +8,18 @@
 # Space Complexity: O(1), In-Place
 # Stability: Stable
 
-
 def combSort(list):
     # set initial gap to length of list
     gap = len(list)
-    swapped = True
     # repeat while gap is not 1 or no two elements were swapped during iteration
-    while gap != 1 or swapped == False:
+    while gap > 1:
         # update gap
         gap = int(gap / 1.3)
-        # clear swapped variable
-        swapped = False
         # iterate through list
         for i in range(len(list) - gap):
             # if current number is larger than number across the gap
             if list[i] > list[i + gap]:
                 # set swapped to true and swap the numbers
-                swapped = True
                 list[i], list[i + gap] = list[i + gap], list[i]
     return list
 
